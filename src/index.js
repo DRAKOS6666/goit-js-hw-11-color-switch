@@ -1,5 +1,4 @@
 import './styles.css';
-console.log('start');
 
 const colors = [
   '#FFFFFF',
@@ -11,12 +10,14 @@ const colors = [
 ];
 
 const refs = {
-  body: document.querySelector('body'),
-  buttonStart: document.querySelector('button[data-action="start"]'),
-  buttonStop: document.querySelector('button[data-action="stop"]'),
+    body: document.querySelector('body'),
+    buttonStart: document.querySelector('button[data-action="start"]'),
+    buttonStop: document.querySelector('button[data-action="stop"]'),
 };
 
 let timerId = null;
+
+refs.buttonStart.addEventListener('click', startChange);
 
 const startChange = event => {
   timerId = setInterval(changeBgColor, 1000);
@@ -41,4 +42,3 @@ const randomIntegerFromInterval = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
 };
 
-refs.buttonStart.addEventListener('click', startChange);
